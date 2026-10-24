@@ -1,0 +1,132 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report Found Item | FindIt@Campus</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <header>
+        <div class="logo">FindIt@Campus</div>
+        <nav id="mainNav">
+            <a href="index.html">Home</a>
+            <a href="report-lost.html">Report Lost</a>
+            <a href="report-found.html">Report Found</a>
+            <a href="search.html">Search Items</a>
+            <a href="login.html" class="login-btn" id="navAuthBtn">Login</a>
+        </nav>
+    </header>
+
+    <!-- Report Found Section -->
+    <section class="report-page">
+        <div class="report-card">
+            <div class="report-heading">
+                <p class="welcome">FOUND ITEM REPORT</p>
+                <h1>Report a Found Item</h1>
+                <p>
+                    Found something on campus? Report it here so
+                    the owner can find it.
+                </p>
+            </div>
+
+            <div id="foundFormAlert" style="display: none;"></div>
+
+            <form id="foundItemForm">
+                <!-- Item Name -->
+                <div class="form-group">
+                    <label for="foundItemName">Item Name</label>
+                    <input
+                        type="text"
+                        id="foundItemName"
+                        placeholder="Example: Black Wallet"
+                        required
+                    >
+                </div>
+
+                <!-- Category -->
+                <div class="form-group">
+                    <label for="foundCategory">Category</label>
+                    <select id="foundCategory" required>
+                        <option value="">Select Category</option>
+                        <option value="Bag">Bag</option>
+                        <option value="Electronics">Electronics</option>
+                        <option value="Books">Books</option>
+                        <option value="ID Card">ID Card</option>
+                        <option value="Clothing">Clothing</option>
+                        <option value="Accessories">Accessories</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <!-- Description -->
+                <div class="form-group">
+                    <label for="foundDescription">Description</label>
+                    <textarea
+                        id="foundDescription"
+                        rows="5"
+                        placeholder="Describe the item, colour, brand, special marks, etc."
+                        required
+                    ></textarea>
+                </div>
+
+                <!-- Location -->
+                <div class="form-group">
+                    <label for="foundLocation">Found Location</label>
+                    <input
+                        type="text"
+                        id="foundLocation"
+                        placeholder="Example: College Canteen"
+                        required
+                    >
+                </div>
+
+                <!-- Room Number -->
+                <div class="form-group">
+                    <label for="roomNumber">
+                        Handed In At Room Number
+                    </label>
+                    <input
+                        type="text"
+                        id="roomNumber"
+                        placeholder="Example: 8001"
+                        value="8001"
+                        required
+                    >
+                </div>
+
+                <!-- Contact -->
+                <div class="form-group">
+                    <label for="foundContactNumber">
+                        Contact Number
+                    </label>
+                    <input
+                        type="tel"
+                        id="foundContactNumber"
+                        placeholder="Enter your contact number"
+                        required
+                    >
+                </div>
+
+                <!-- Submit -->
+                <button
+                    type="submit"
+                    id="submitFoundBtn"
+                    class="primary-btn submit-report"
+                >
+                    Submit Found Item Report
+                </button>
+            </form>
+
+            <a href="index.html" class="back-home">
+                ← Back to Home
+            </a>
+        </div>
+    </section>
+
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

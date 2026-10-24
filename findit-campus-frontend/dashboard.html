@@ -1,0 +1,110 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | FindIt@Campus</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <header>
+        <div class="logo">FindIt@Campus</div>
+        <nav id="mainNav">
+            <a href="index.html">Home</a>
+            <a href="report-lost.html">Report Lost</a>
+            <a href="report-found.html">Report Found</a>
+            <a href="search.html">Search Items</a>
+            <a href="my-reports.html">My Reports</a>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="login.html" class="login-btn" id="navAuthBtn">Login</a>
+        </nav>
+    </header>
+
+    <!-- Dashboard -->
+    <section class="dashboard-page">
+        <div class="dashboard-container">
+            <!-- Welcome -->
+            <div class="dashboard-welcome">
+                <p class="welcome">STUDENT DASHBOARD</p>
+                <h1 id="welcomeUserHeader">Welcome to FindIt@Campus 👋</h1>
+                <p>Manage your lost and found reports and track smart matches in real-time.</p>
+            </div>
+
+            <div id="dashboardAlert" style="display: none;"></div>
+
+            <!-- Quick Actions -->
+            <div class="dashboard-actions">
+                <a href="report-lost.html" class="dashboard-action">
+                    <div class="dashboard-icon">📢</div>
+                    <h3>Report Lost</h3>
+                    <p>Report something you have lost.</p>
+                </a>
+
+                <a href="report-found.html" class="dashboard-action">
+                    <div class="dashboard-icon">📦</div>
+                    <h3>Report Found</h3>
+                    <p>Report an item you found.</p>
+                </a>
+
+                <a href="search.html" class="dashboard-action">
+                    <div class="dashboard-icon">🔍</div>
+                    <h3>Search Items</h3>
+                    <p>Find lost and found items.</p>
+                </a>
+
+                <a href="my-reports.html" class="dashboard-action">
+                    <div class="dashboard-icon">📋</div>
+                    <h3>My Reports</h3>
+                    <p>View your submitted reports.</p>
+                </a>
+            </div>
+
+            <!-- Statistics -->
+            <div class="dashboard-stats">
+                <div class="stat-card">
+                    <div class="stat-number" id="statMyReports">-</div>
+                    <p>My Reports</p>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-number" id="statMatches">-</div>
+                    <p>Possible Matches</p>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-number" id="statReturned">-</div>
+                    <p>Items Returned</p>
+                </div>
+            </div>
+
+            <!-- Possible Matches Section -->
+            <div class="match-section">
+                <div class="section-title">
+                    <h2>Smart Matches</h2>
+                    <a href="search.html">Browse All Items →</a>
+                </div>
+
+                <div id="matchesContainer">
+                    <div class="loading-indicator">
+                        <div class="spinner"></div>
+                        <p>Finding potential matches for your reports...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Details Modal Placeholder -->
+    <div id="itemModal" class="modal-overlay" style="display: none;">
+        <div class="modal-box">
+            <button class="modal-close-btn" onclick="closeModal()">&times;</button>
+            <div id="modalContent"></div>
+        </div>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Reports | FindIt@Campus</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <header>
+        <div class="logo">FindIt@Campus</div>
+        <nav id="mainNav">
+            <a href="index.html">Home</a>
+            <a href="report-lost.html">Report Lost</a>
+            <a href="report-found.html">Report Found</a>
+            <a href="search.html">Search Items</a>
+            <a href="my-reports.html">My Reports</a>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="login.html" class="login-btn" id="navAuthBtn">Login</a>
+        </nav>
+    </header>
+
+    <!-- My Reports -->
+    <section class="reports-page">
+        <div class="reports-container">
+            <div class="reports-heading">
+                <p class="welcome">MY ACTIVITY</p>
+                <h1>My Reports</h1>
+                <p>View and track the lost and found items you have reported.</p>
+            </div>
+
+            <div id="reportsAlert" style="display: none;"></div>
+
+            <!-- Report Cards -->
+            <div class="reports-grid" id="myReportsContainer">
+                <div class="loading-indicator">
+                    <div class="spinner"></div>
+                    <p>Loading your reported items...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Details Modal Placeholder -->
+    <div id="itemModal" class="modal-overlay" style="display: none;">
+        <div class="modal-box">
+            <button class="modal-close-btn" onclick="closeModal()">&times;</button>
+            <div id="modalContent"></div>
+        </div>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,116 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report Lost Item | FindIt@Campus</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <header>
+        <div class="logo">FindIt@Campus</div>
+        <nav id="mainNav">
+            <a href="index.html">Home</a>
+            <a href="report-lost.html">Report Lost</a>
+            <a href="report-found.html">Report Found</a>
+            <a href="search.html">Search Items</a>
+            <a href="login.html" class="login-btn" id="navAuthBtn">Login</a>
+        </nav>
+    </header>
+
+    <!-- Report Lost Section -->
+    <section class="report-page">
+        <div class="report-card">
+            <div class="report-heading">
+                <p class="welcome">LOST ITEM REPORT</p>
+                <h1>Report a Lost Item</h1>
+                <p>
+                    Tell us about the item you lost so we can help
+                    you find it.
+                </p>
+            </div>
+
+            <div id="lostFormAlert" style="display: none;"></div>
+
+            <form id="lostItemForm">
+                <!-- Item Name -->
+                <div class="form-group">
+                    <label for="itemName">Item Name</label>
+                    <input
+                        type="text"
+                        id="itemName"
+                        placeholder="Example: Blue Backpack"
+                        required
+                    >
+                </div>
+
+                <!-- Category -->
+                <div class="form-group">
+                    <label for="category">Category</label>
+                    <select id="category" required>
+                        <option value="">Select Category</option>
+                        <option value="Bag">Bag</option>
+                        <option value="Electronics">Electronics</option>
+                        <option value="Books">Books</option>
+                        <option value="ID Card">ID Card</option>
+                        <option value="Clothing">Clothing</option>
+                        <option value="Accessories">Accessories</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <!-- Description -->
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea
+                        id="description"
+                        rows="5"
+                        placeholder="Describe the item, colour, brand, special marks, etc."
+                        required
+                    ></textarea>
+                </div>
+
+                <!-- Location -->
+                <div class="form-group">
+                    <label for="location">Last Seen Location</label>
+                    <input
+                        type="text"
+                        id="location"
+                        placeholder="Example: Library 2nd Floor"
+                        required
+                    >
+                </div>
+
+                <!-- Contact Number -->
+                <div class="form-group">
+                    <label for="contactNumber">Contact Number</label>
+                    <input
+                        type="tel"
+                        id="contactNumber"
+                        placeholder="Enter your contact number"
+                        required
+                    >
+                </div>
+
+                <!-- Submit -->
+                <button
+                    type="submit"
+                    id="submitLostBtn"
+                    class="primary-btn submit-report"
+                >
+                    Submit Lost Item Report
+                </button>
+            </form>
+
+            <a href="index.html" class="back-home">
+                ← Back to Home
+            </a>
+        </div>
+    </section>
+
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
