@@ -20,6 +20,20 @@
 5. Found items are recorded as handed in to **room 8001** (`roomNumber` field).
 6. Only `ADMIN_EMAIL` can call `GET /api/items` to see every report — owners see their private report details via `GET /api/items/mine`, while public search and item details expose only the public field allowlist.
 
+## Vercel deployment
+
+Vercel does not load the local `.env` file. Add the production values under the Vercel project's **Settings → Environment Variables**, then redeploy:
+
+- `MONGO_URI` — the Atlas connection string.
+- `JWT_SECRET` — a random secret with at least 32 characters.
+- `JWT_EXPIRES_IN` — for example, `7d`.
+- `OTP_EXPIRY_MINUTES` — for example, `5`.
+- `COLLEGE_EMAIL_DOMAIN` — for example, `@sru.edu.in`.
+- `ADMIN_EMAIL` — the designated admin account.
+- `SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASS`, and `SMTP_FROM` — sender configuration for OTP delivery.
+
+The Express API connects to MongoDB when a database-backed API route runs in Vercel and reuses the connection within a warm function instance. Keep `/api/health` as a liveness check; it does not verify MongoDB. The frontend and API share the Vercel origin in this setup, so `CORS_ORIGINS` can remain empty. Atlas Network Access must permit connections from the deployed backend; a local machine's IP entry does not permit connections from Vercel.
+
 ## API Reference
 
 ### `POST /api/auth/send-otp`

@@ -11,15 +11,16 @@ const {
   getItemById,
 } = require("../controllers/itemController");
 const asyncHandler = require("../utils/asyncHandler");
+const ensureDatabase = require("../middleware/ensureDatabase");
 
 const router = express.Router();
 
-router.post("/", requireAuth, asyncHandler(reportItem));
-router.get("/mine", requireAuth, asyncHandler(getMyItems));
-router.get("/search", asyncHandler(searchItems));
-router.get("/matches", requireAuth, asyncHandler(getSmartMatches));
-router.get("/dashboard-stats", requireAuth, asyncHandler(getDashboardStats));
-router.get("/:id", asyncHandler(getItemById));
-router.get("/", requireAuth, requireAdmin, asyncHandler(getAllItems));
+router.post("/", requireAuth, ensureDatabase, asyncHandler(reportItem));
+router.get("/mine", requireAuth, ensureDatabase, asyncHandler(getMyItems));
+router.get("/search", ensureDatabase, asyncHandler(searchItems));
+router.get("/matches", requireAuth, ensureDatabase, asyncHandler(getSmartMatches));
+router.get("/dashboard-stats", requireAuth, ensureDatabase, asyncHandler(getDashboardStats));
+router.get("/:id", ensureDatabase, asyncHandler(getItemById));
+router.get("/", requireAuth, requireAdmin, ensureDatabase, asyncHandler(getAllItems));
 
 module.exports = router;

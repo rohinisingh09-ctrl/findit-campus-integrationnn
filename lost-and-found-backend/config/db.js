@@ -1,17 +1,24 @@
-﻿const mongoose = require("mongoose");
+const mongoose = require("mongoose");
+
+let connectionPromise;
 
 async function connectDB() {
-  try {
-    const uri = process.env.MONGO_URI || "mongodb://127.0.0.1:27017/lostfound";
-    await mongoose.connect(uri, {
-      serverSelectionTimeoutMS: 5000,
+  if (mongoose.connection.readyState === 1) return mongoose.connection;
+
+  const uri = process.env.MONGO_URI || "mongodb://127.0.0.1:27017/lostfound";
+  if (!connectionPromise) {
+    connectionPromise = mongoose.connect(uri, {
+      serverSelectionTimeoutMS: 10000,
+    }).then(() => {
+      console.log("MongoDB connected successfully");
+      return mongoose.connection;
+    }).catch((err) => {
+      connectionPromise = null;
+      throw err;
     });
-    console.log("MongoDB connected successfully");
-  } catch (err) {
-    console.error("MongoDB connection error:", err.message);
-    console.error("Note: If using MongoDB Atlas, ensure Network Access whitelist allows your IP (0.0.0.0/0 in Atlas Network Access).");
-    process.exit(1);
   }
+
+  return connectionPromise;
 }
 
 module.exports = connectDB;
